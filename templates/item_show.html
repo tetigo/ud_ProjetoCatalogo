@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ item.title }}</h1>
+<p>{{ item.description | replace('\n', '<br>') | safe }}</p>
+
+<p class="faded">Criado por {{ user.name }}</p>
+
+{% if g.logged_in %}
+<p>
+	{% set url = url_for('edit_item', category=item.category.name, item_id=item.id) %}
+	<a href='{{ url }}'>Editar</a>
+
+	{% set url = url_for('delete_item', category=item.category.name, item_id=item.id) %}
+	<a href='{{ url }}'>Excluir</a>
+</p>
+{% endif %}
+{% endblock %}

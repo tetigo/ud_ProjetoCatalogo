@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Catalogo</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<header>
+	<div id="heading">
+		<span class="heading-name">
+		<a href="/">Catalogo</a>
+		</span>
+
+		<span class="row-space"></span>
+
+		{% if g.logged_in %}
+			<a class="bar-btn" href="{{ url_for('new_item') }}">Novo Item</a>
+		{% endif %}
+
+		<div class="vertical-space"></div>
+
+		<a class="bar-btn" href="{% if g.logged_in %}{{ url_for('logout') }}{% else %}{{ url_for('login') }}{% endif %}">
+		{% if g.logged_in %}Logout{% else %}Login{% endif %}
+		</a>
+	</div>
+</header>
+
+<div class="content">
+	
+	<div class="content-2">
+	{% block content %}
+	{% endblock %}
+
+	{% if g.logged_in %}
+		<div class="faded current-user">
+			Usuario Atual: {{ g.user_email }}
+		</div>
+	{% endif %}
+	</div>
+</div>
+
+</body>
+</html>

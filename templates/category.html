@@ -1,0 +1,8 @@
+{% extends "home.html" %}
+{% block rightside %}
+	<h2>{{ category }} ({{ items|length }} items)</h2>
+	{% for i in items %}
+		{% set url = url_for('item_view', category=category, item=i.title) %}
+		<a class="block-link" href='{{ url }}'>{{ i.title }}</a>
+	{% endfor %}
+{% endblock %}

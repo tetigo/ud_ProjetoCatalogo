@@ -1,0 +1,106 @@
+body {
+	margin: 0 auto 0 auto;
+	font-family: 'Roboto', sans-serif;
+	background-color: #D4D4D4;
+}
+
+header {
+	background-color: #1a3067;
+}
+
+#heading {
+	max-width: 1000px;
+	margin: 0 auto 0 auto;
+	padding: 0.7em 0 0.7em 0;
+	display: flex;
+	flex-direction: row;
+}
+
+#heading .heading-name a {
+	color: white;
+	font-size: 2.5em;
+	text-decoration: none;
+}
+
+#heading .bar-btn {
+	align-self: flex-end;
+	justify-content: center;
+	background-color: #D03124;
+	color: white;
+	font-size: 1.3em;
+	padding: 0.4em 0.4em 0.4em 0.4em;
+	text-decoration: none;
+}
+
+div.content {
+	max-width: 1000px;
+	margin: 2em auto 0 auto;
+	border: 1px solid gray;
+	background-color: white;
+}
+
+div.content-2 {
+	height: 100%;
+	margin: 0 1.5em 0 1.5em;
+	padding: 1em 0 1.5em 0;
+}
+
+div.current-user {
+	text-align: right;
+	margin-top: 2.5em;
+}
+
+h1, h2 {
+	color: #1a3067;
+}
+
+a {
+	color: #D03124;
+	text-decoration: none;
+}
+
+div.row {
+	display: flex;
+	flex-direction: row;
+}
+
+#left-side {
+	display: inline-block;
+	height: 100%;
+}
+
+a.block-link {
+	display: block;
+	color: #D03124;
+}
+
+#right-size {
+	display: inline-block;
+	height: 100%;
+}
+
+
+
+/**
+ * Posicionamento
+ */
+
+div.vertical-space {
+	align-self: stretch;
+	width: 1em;
+}
+
+.row-space {
+	flex-grow: 1000;
+}
+
+#line-seg {
+	align-self: stretch;
+	width: 1px;
+	background-color: gray;
+}
+
+.faded {
+	opacity: 0.7;
+	font-size: 0.8em;
+}

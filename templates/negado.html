@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Você não tem permissão para acessar esta página</h2>
+<p>
+	{% if not_logged_in %}
+		Necessário logar para ter acesso.
+	{% else %}
+	    Este item não te pertence.
+	{% endif %}
+</p>
+{% endblock %}

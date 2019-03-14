@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+	<div id="left-side">
+		<h2>Categorias</h2>
+		{% for c in categorias %}
+		{% set url = url_for('list_category', category=c) %}
+		<a class="block-link" href='{{ url }}'>{{ c }}</a>
+		{% endfor %}
+	</div>
+
+	<div class="vertical-space"></div>
+	<div class="vertical-space"></div>
+
+	<div id="line-seg">
+	</div>
+
+	<div class="vertical-space"></div>
+	<div class="vertical-space"></div>
+
+	<div id="right-side">
+		{% block rightside %}
+		<h2>Itens Recentes</h2>
+		{% for i in items %}
+		<div>
+			{% set url = url_for('item_view', category=i.category.name, item=i.title) %}
+			<a href='{{ url }}'>{{ i.title }} </a>
+			<span class="faded">({{ i.category.name }})</span>
+		</div>
+		{% endfor %}
+		{% endblock %}
+	</div>
+
+</div>
+
+{% endblock %}

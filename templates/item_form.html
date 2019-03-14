@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Criar Novo Item</h1>
+
+<form action="{{ target_url }}" method="POST">
+
+	<label for="title">Titulo</label><br>
+	<input type="text" id="title" name="title" value="{{ item.title if item.title != None }}">
+
+	<br><br>
+
+	<label for="description">Descrição</label><br>
+	<textarea id="text" name="description" id="description" rows="8" cols="70">{{ item.description if item.description != None }}</textarea>
+
+	<br><br>
+
+	<label for="category">Categoria</label><br>
+	<select name="category" id="category">
+	{% for c in categories %}
+		<option value="{{ c.id }}" {% if item.category_id == c.id %}selected{% endif %}>{{ c.name }}</option>
+	{% endfor %}
+	</select>
+
+	<br><br>
+
+	<input type="submit" value="Enviar">
+
+</form>
+{% endblock %}
