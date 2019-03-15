@@ -44,6 +44,7 @@ http://localhost:5000
 
 ### 8. Para acessar as APIS JSON:
 http://localhost:5000/categorias.json
+
 http://localhost:5000/items.json
 
 Tiago Mendes
