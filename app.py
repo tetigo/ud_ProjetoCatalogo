@@ -161,9 +161,8 @@ def list_category(category):
 def item_view(category, item):
     """
     mostra item especifico de determinada categoria
-    """    
+    """
     item = Item.query.filter(Item.title == item).first()
-    
     return render_template('item_show.html', item=item, user=item.user)
 
 
