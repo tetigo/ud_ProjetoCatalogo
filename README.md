@@ -2,25 +2,47 @@
 
 
 Projeto onde podemos criar categorias de coisas e dentro de cada categoria podemos cadastrar itens.
+
+### 0. Antes da Instalação Seguir os Seguintes Passos:
+Instalar Python3.
+Criar Diretório com nome que desejar.
+Dentro desse diretório abrir janela do DOS rodando o comando CMD.
+Rodar o comando para criar Ambiente Virtual do Python3:
+```sh
+python -m venv venv
+```
+Ativar o ambiente virtual para instalar programas necessários apenas nesse ambiente.
+```sh
+cd venv
+cd Scripts
+activate
+cd ..
+cd ..
+```
+
 ### 1. Instalação:
 ```sh
 pip install -r requirements.txt
 ```
-### 2. Criar banco de dados:
+
+### 2. Setar variaveis de ambiente
+```sh
+	set FLASK_APP=app.py
+	set FLASK_ENV=development
+```
+
+### 3. Criar banco de dados:
 ```sh
 flask db init
 flask db migrate
 flask db upgrade
 ```
-### 3. Carregar dados iniciais para banco:
+
+### 4. Carregar dados iniciais para banco:
 ```sh
 python carga_banco.py
 ```
-### 4. Setar variaveis de ambiente
-```sh
-	set FLASK_APP=app.py
-	set FLASK_ENV=development
-```
+
 ### 5. Gerar Credenciais Google OAuth
 Crie um projeto em: [developers.google.com](https://console.developers.google.com/)
 Vá em Credenciais. Selecione Criar Credenciais -> ID do Cliente OAuth". 
