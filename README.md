@@ -3,11 +3,15 @@
 
 Projeto onde podemos criar categorias de coisas e dentro de cada categoria podemos cadastrar itens.
 
-### 0. Antes da Instalação Seguir os Seguintes Passos:
+### 0. Antes da Instalação das Dependências do Projeto Seguir os Seguintes Passos:
 Instalar Python3.
+
 Criar Diretório com nome que desejar.
+
 Dentro desse diretório abrir janela do DOS rodando o comando CMD.
+
 Rodar o comando para criar Ambiente Virtual do Python3:
+
 ```sh
 python -m venv venv
 ```
