@@ -4,7 +4,7 @@
 Projeto onde podemos criar categorias de coisas e dentro de cada categoria podemos cadastrar itens.
 
 ### 0. Antes da Instalação das Dependências do Projeto Seguir os Seguintes Passos:
-Instalar Python3.
+Instalar [Python3](https://www.python.org/downloads/release/python-368/).
 
 Criar Diretório com nome que desejar.
 
