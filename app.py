@@ -1,47 +1,28 @@
-import os
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
-from flask import Flask, g, render_template
-from flask import redirect, url_for, session, request, jsonify
+import json
 
-from flask_sqlalchemy import SQLAlchemy
+import datetime
 
-from flask_login import LoginManager, current_user
-from flask_login import login_user, login_required, logout_user
+import httplib2
 
-from flask_migrate import Migrate
+from super import app, db, login_manager, migrate
+
+from models import User, Category, Item
+
+from config import Auth, Config
+
+from flask import g, render_template, redirect
+from flask import url_for, session, request, jsonify
+
+from flask_login import current_user, login_user
+from flask_login import login_required, logout_user
 
 from sqlalchemy import desc
 
 from requests.exceptions import HTTPError
 from requests_oauthlib import OAuth2Session
-import json
-import datetime
-import httplib2
-
-from config import Auth, Config
-
-# para testar local
-# permite transporte http, uma vez que https requer ssl
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-
-app = Flask(__name__)
-
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = "login"
-
-app.config['SECRET_KEY'] = Config.SECRET_KEY
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banco.sqlite3'
-app.config['CSRF_ENABLED'] = True
-
-app.debug = True
-
-db = SQLAlchemy(app)
-
-migrate = Migrate(app, db)
-
-from models import User, Category, Item
 
 
 # ------------------------------------------------------------------------
@@ -104,13 +85,31 @@ def get_categorias():
     return jsonify(categorias=[c.serialize for c in categorias])
 
 
+@app.route('/<category>/categoria.json')
+def get_specific_categoria(category):
+    """
+    retorna determinada categoria em formato JSON
+    """
+    categoria = Category.query.filter(Category.name == category).first()
+    return jsonify(categoria=categoria.serialize)
+
+
 @app.route('/items.json')
 def get_items():
     """
-    retorna todas as categorias em formato JSON
+    retorna todas os itens em formato JSON
     """
     items = Item.query.all()
     return jsonify(items=[c.serialize for c in items])
+
+
+@app.route('/<item>/item.json')
+def get_chosen_item(item):
+    """
+    retorna item escolhido em formato JSON
+    """
+    item = Item.query.filter(Item.title == item).first()
+    return jsonify(item=item.serialize)
 
 
 @app.route('/new', methods=['GET'])

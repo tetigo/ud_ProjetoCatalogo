@@ -58,6 +58,7 @@ Crie um arquivo chamando ".flaskenv" sem as aspas mas com o ponto inicial.
 Nesse arquivo coloque:
  CLIENT_ID='sua ID que acabou de salvar'
  CLIENT_SECRET='sua chave secreta que acabou de salvar'
+ SECRET_KEY='chave secreta criada por você'
 Coloque um em cada linha e salve o arquivo.
 
 ### 6. Para rodar digite:
@@ -71,7 +72,12 @@ http://localhost:5000
 ### 8. Para acessar as APIS JSON:
 http://localhost:5000/categorias.json
 
+http://localhost:5000/nome_da_categoria/categoria.json
+
 http://localhost:5000/items.json
+
+http://localhost:5000/nome_do_item/items.json
+
 
 Tiago Mendes
 <tetigo@gmail.com>

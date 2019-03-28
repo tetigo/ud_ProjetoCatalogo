@@ -1,5 +1,11 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from app import db
 from models import User, Category, Item
+
+# c1 = Category()
+# c2 = Category()
 
 exists = Category.query.filter_by(name='Hockey').first()
 if not exists:
@@ -15,6 +21,6 @@ if not exists:
 
 db.session.commit()
 
-print('------------------------------')
-print('Dados adicionados com Sucesso!')
-print('------------------------------')
+print '------------------------------'
+print 'Dados adicionados com Sucesso!'
+print '------------------------------'
